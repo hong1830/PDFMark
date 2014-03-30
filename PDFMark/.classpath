@@ -12,5 +12,6 @@
 	<classpathentry kind="lib" path="libs/itextpdf-5.3.2-javadoc.jar"/>
 	<classpathentry kind="lib" path="libs/itextpdf-5.3.2-sources.jar"/>
 	<classpathentry kind="lib" path="libs/itextpdf-5.3.2.jar"/>
+	<classpathentry kind="lib" path="libs/bcprov-ext-jdk15on-149.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

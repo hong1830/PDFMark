@@ -1,5 +1,4 @@
 package com.zjut.mark.test;
-import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -9,7 +8,6 @@ import java.io.IOException;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Font;
-import com.itextpdf.text.Header;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
@@ -43,7 +41,7 @@ public class PdfConvertor {
             // 创建pdf文件到临时文件
             if (createPDFFile(txtFile, file)) {
                 // 增加水印和加密
-                waterMark(file.getPath(), pdfFile, userPassWord, OWNERPASSWORD,
+                waterMark(file.getPath(), pdfFile, null, OWNERPASSWORD,
                         waterMarkName, permission);
             }
         } catch (Exception e) {
@@ -89,7 +87,8 @@ public class PdfConvertor {
             PdfStamper stamper = new PdfStamper(reader, new FileOutputStream(
                     outputFile));
             // 设置密码
-            //stamper.setEncryption(userPassWord.getBytes(), ownerPassWord.getBytes(), permission, false);
+            
+            stamper.setEncryption(null, ownerPassWord.getBytes(), 2052, false);
             BaseFont base = BaseFont.createFont("./resource/simsun.ttc,1",
 					BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
             int total = reader.getNumberOfPages() + 1;
